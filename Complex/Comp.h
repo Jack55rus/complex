@@ -5,8 +5,6 @@ template<typename T> class Comp
 private:
 	T Re;
 	T Im;
-	template<typename Y>
-	friend std::istream& operator >>(std::istream&, Comp<Y>&);
 	
 public:
 	static int count;
@@ -33,10 +31,8 @@ public:
 	Comp<T> operator /(const Comp<T>&) const;
 	template<typename U> 
 	friend std::ostream& operator <<(std::ostream&, const Comp<U>&);
-	/*template<typename Y>
-	friend std::istream& operator >>(std::istream&,  Comp<Y>&);*/
+	template<typename Y>
+	friend std::istream& operator >>(std::istream&,  Comp<Y>&);
 	T getReal();
 	T getImag();
 };
-/*template<typename U>
-std::ostream& operator<<(std::ostream& , const Comp<U>&);*/
